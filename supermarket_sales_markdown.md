@@ -27,20 +27,6 @@ With that, we are able to start.
 
 ``` r
 library(tidyverse)
-```
-
-    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
-    ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-    ## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-    ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-    ## ✔ purrr     1.0.1     
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-    ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-``` r
 library(ggthemes) # Optional
 library(janitor)
 library(lubridate)
@@ -168,7 +154,8 @@ ggplot(data = supermarket_summary, mapping = aes(x= date, y= total)) +
   theme_bw()
 ```
 
-![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![unnamed-chunk-7-1](https://github.com/MiguelOmarBH/Supermarket_Sales/assets/135857016/a7aaa659-f44b-4e8c-9522-faff374fb156)
+
 
 We can see noticeable changes over time, so we could argue that in some
 moments of the week the sales are higher than in others. Let’s try to
@@ -190,7 +177,8 @@ supermarket_summary %>%
   theme_economist()
 ```
 
-![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![unnamed-chunk-8-1](https://github.com/MiguelOmarBH/Supermarket_Sales/assets/135857016/d8da0ab1-92bf-400c-916b-e3559ee980db)
+
 
 Observing the plot we clearly observe that during Saturdays the mean
 income is higher than the rest of the week. We also notice that the
@@ -216,7 +204,8 @@ ggplot(data = supermarket_sales, mapping = aes(x="", y= payment, fill = payment)
   theme_void() # Theme to remove the background
 ```
 
-![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![unnamed-chunk-9-1](https://github.com/MiguelOmarBH/Supermarket_Sales/assets/135857016/3adc35b2-fdc8-43ad-a078-b1216ae39790)
+
 
 Now, we know that customers prefer to pay with card or Ewallet.
 
@@ -233,7 +222,8 @@ ggplot(data = supermarket_sales, mapping = aes(x= city, y= total, fill = gender)
        y= "Average waste")
 ```
 
-![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![unnamed-chunk-10-1](https://github.com/MiguelOmarBH/Supermarket_Sales/assets/135857016/f8c6b920-13ca-450f-bfc4-460fab3251d3)
+
 
 Noticeable differences in waste per gender appear in Mandalay and Yangon
 markets. We can perform statistical methods such as ANOVA or T-test
@@ -264,7 +254,8 @@ ggplot(data= supermarket_sales, mapping = aes(y= product_line, x= sum(quantity),
   theme_minimal()
 ```
 
-![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![unnamed-chunk-12-1](https://github.com/MiguelOmarBH/Supermarket_Sales/assets/135857016/7ecc0d25-6192-4603-b9d0-20b0b03ed343)
+
 
 We can label each product line with the gender percentage by summarizing
 and calculating the %, but we can observe that males have more sales in
