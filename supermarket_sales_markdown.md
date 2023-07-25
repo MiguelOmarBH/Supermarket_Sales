@@ -43,29 +43,9 @@ library(tidyverse)
 ``` r
 library(ggthemes) # Optional
 library(janitor)
-```
-
-    ## 
-    ## Attaching package: 'janitor'
-    ## 
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     chisq.test, fisher.test
-
-``` r
 library(lubridate)
 supermarket_sales <- read_csv("supermarket_sales.csv")
 ```
-
-    ## Rows: 1000 Columns: 17
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## Delimiter: ","
-    ## chr  (8): Invoice ID, Branch, City, Customer type, Gender, Product line, Dat...
-    ## dbl  (8): Unit price, Quantity, Tax 5%, Total, cogs, gross margin percentage...
-    ## time (1): Time
-    ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ## Data transforming
 
@@ -173,29 +153,6 @@ time. As each date could have many sales, first we have to summarize:
 
 ``` r
 library(plyr)
-```
-
-    ## ------------------------------------------------------------------------------
-
-    ## You have loaded plyr after dplyr - this is likely to cause problems.
-    ## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
-    ## library(plyr); library(dplyr)
-
-    ## ------------------------------------------------------------------------------
-
-    ## 
-    ## Attaching package: 'plyr'
-
-    ## The following objects are masked from 'package:dplyr':
-    ## 
-    ##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-    ##     summarize
-
-    ## The following object is masked from 'package:purrr':
-    ## 
-    ##     compact
-
-``` r
 supermarket_summary <- ddply(supermarket_sales, c("date"), summarize, total = sum(total))
 detach(package:plyr)
 ```
@@ -210,12 +167,6 @@ ggplot(data = supermarket_summary, mapping = aes(x= date, y= total)) +
        y= "Daily income") +
   theme_bw()
 ```
-
-    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-    ## ℹ Please use `linewidth` instead.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
 
 ![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
@@ -312,9 +263,6 @@ ggplot(data= supermarket_sales, mapping = aes(y= product_line, x= sum(quantity),
        y= "Product line") +
   theme_minimal()
 ```
-
-    ## Warning in geom_col(mapping = aes(width = 0.4)): Ignoring unknown aesthetics:
-    ## width
 
 ![](supermarket_sales_notebook_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
